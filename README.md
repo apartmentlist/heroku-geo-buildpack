@@ -15,8 +15,25 @@ Example usage:
     $ heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git
 
     $ cat .buildpacks
-    https://github.com/cyberdelia/heroku-geo-buildpack.git#1.0
+    https://github.com/cyberdelia/heroku-geo-buildpack.git#1.1
     https://github.com/heroku/heroku-buildpack-ruby.git#v79
 
 
 Don't forget to pin buildpack versions you want to use in your .buildpacks file.
+
+Testing
+-------
+
+For Geo Django:
+
+>>> from django.contrib.gis import gdal
+>>> gdal.HAS_GDAL
+True
+
+For rgeo:
+
+>>> require 'rgeo'
+>>> RGeo::CoordSys::Proj4.supported?
+=> true
+>>> RGeo::Geos.supported?
+=> true
